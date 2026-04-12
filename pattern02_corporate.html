@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>提案先企業 分析レポート — デイリースポーツ案内広告社様</title>
+<style>
+/* ── Reset & Base ── */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP','Inter',sans-serif;background:#f8fafb;color:#283C50;line-height:1.6}
+
+/* ── Header ── */
+.header{background:#fff;border-bottom:1px solid #dde3e8;padding:28px 64px}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start}
+.logo-area h1{font-size:20px;font-weight:700;color:#283C50}
+.logo-area p{font-size:12px;color:#939DA7;margin-top:4px}
+.date-badge{background:#eaf7f7;color:#2A9BA1;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600}
+.sub{font-size:13px;color:#939DA7;margin-top:12px;padding-top:12px;border-top:1px solid #f4f6f8}
+
+/* ── Main ── */
+.main{max-width:1200px;margin:32px auto;padding:0 32px}
+
+/* ── KPI ── */
+.kpi-row{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:28px}
+.kpi{background:#fff;border:1px solid #dde3e8;border-radius:10px;padding:16px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.kpi .num{font-size:26px;font-weight:800;color:#2A9BA1}
+.kpi.r .num{color:#dc2626}
+.kpi.g .num{color:#16a34a}
+.kpi.p .num{color:#7c3aed}
+.kpi .lbl{font-size:10px;color:#939DA7;margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
+
+/* ── Card ── */
+.card{background:#fff;border:1px solid #dde3e8;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card h2{font-size:15px;font-weight:700;color:#283C50;border-left:4px solid #2A9BA1;padding-left:12px;margin-bottom:4px}
+.card h2 small{font-size:11px;font-weight:400;color:#939DA7;margin-left:8px}
+
+/* ── Seg row ── */
+.seg-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.seg-box{background:#fff;border:1px solid #dde3e8;border-radius:10px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.seg-box .icon{font-size:24px;margin-bottom:8px}
+.seg-box .cnt{font-size:32px;font-weight:800;color:#2A9BA1}
+.seg-box .lbl{font-size:12px;color:#939DA7;margin-top:4px}
+.seg-box.b .cnt{color:#7c3aed}
+.seg-box.c .cnt{color:#059669}
+
+/* ── Table ── */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{padding:10px 12px;text-align:left;color:#939DA7;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid #f4f6f8}
+td{padding:10px 12px;border-bottom:1px solid #f8fafb;vertical-align:middle}
+
+/* ── Company button ── */
+.company-btn{
+  background:none;border:none;cursor:pointer;
+  color:#27878A;font-weight:600;font-size:13px;
+  text-decoration:underline;text-underline-offset:2px;
+  text-decoration-color:#b2e0e2;
+  padding:2px 4px;border-radius:4px;
+  font-family:inherit;text-align:left;
+  transition:background .15s,color .15s;
+}
+.company-btn:hover{background:#eaf7f7;text-decoration-color:#2A9BA1;color:#182F46}
+
+/* ── Tags ── */
+.tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:10px;font-weight:600;margin-right:3px;white-space:nowrap}
+.tag.red{background:#fee2e2;color:#dc2626}
+.tag.purple{background:#ede9fe;color:#6d28d9}
+.tag.yellow{background:#fef9c3;color:#854d0e}
+.tag.green{background:#dcfce7;color:#166534}
+.tag.blue{background:#e6f7f8;color:#27878A}
+
+/* ── Modal overlay ── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(15,23,42,.55);backdrop-filter:blur(3px);
+  z-index:1000;align-items:center;justify-content:center;
+  padding:24px;
+}
+.modal-overlay.open{display:flex}
+
+/* ── Modal box ── */
+.modal{
+  background:#fff;border-radius:20px;
+  max-width:720px;width:100%;max-height:88vh;
+  overflow-y:auto;box-shadow:0 24px 80px rgba(0,0,0,.2);
+  animation:slideUp .22s cubic-bezier(.16,1,.3,1);
+}
+@keyframes slideUp{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* ── Modal header ── */
+.modal-head{
+  padding:24px 28px 20px;border-bottom:1px solid #f4f6f8;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  position:sticky;top:0;background:#fff;border-radius:20px 20px 0 0;z-index:10;
+}
+.modal-head-info h3{font-size:19px;font-weight:800;color:#283C50;line-height:1.3}
+.modal-head-info .meta{font-size:12px;color:#939DA7;margin-top:4px}
+.modal-score{text-align:center;min-width:72px}
+.modal-score .n{font-size:38px;font-weight:900;color:#2A9BA1;line-height:1}
+.modal-score .l{font-size:10px;color:#939DA7;text-transform:uppercase;letter-spacing:1px}
+.modal-close{
+  background:#f4f6f8;border:none;cursor:pointer;
+  width:32px;height:32px;border-radius:50%;
+  font-size:18px;color:#939DA7;display:flex;align-items:center;justify-content:center;
+  transition:background .15s;flex-shrink:0;margin-left:16px;
+}
+.modal-close:hover{background:#dde3e8;color:#283C50}
+
+/* ── Modal body ── */
+.modal-body{padding:24px 28px 28px}
+
+/* ── Score breakdown ── */
+.score-bd{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.score-chip{background:#f8fafb;border:1px solid #dde3e8;border-radius:20px;padding:4px 12px;font-size:11px;color:#283C50}
+
+/* ── Reason blocks ── */
+.reason-block{border-radius:12px;padding:16px;margin-bottom:12px}
+.reason-tag{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.reason-text{font-size:13px;line-height:1.75;color:#374151;white-space:pre-line}.reason-text a{color:#27878A;text-decoration:underline;word-break:break-all}
+
+/* ── CTA area ── */
+.modal-cta{
+  background:#eaf7f7;border-radius:12px;padding:16px 20px;margin-top:16px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.modal-cta .rec{font-size:12px;color:#182F46;font-weight:600}
+.modal-cta .rec small{display:block;font-weight:400;color:#939DA7;font-size:11px;margin-top:2px}
+.modal-cta a{
+  display:inline-block;background:#2A9BA1;color:#fff;
+  padding:8px 18px;border-radius:8px;font-size:12px;font-weight:600;
+  text-decoration:none;white-space:nowrap;margin-left:16px;
+  transition:background .15s;
+}
+.modal-cta a:hover{background:#27878A}
+
+/* ── Hint text under table ── */
+.hint{font-size:11px;color:#939DA7;margin-top:8px;text-align:center}
+.hint span{display:inline-flex;align-items:center;gap:4px}
+
+footer{text-align:center;color:#cbd5e1;font-size:11px;padding:32px;margin-top:24px}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="header">
+  <div class="header-top">
+    <div class="logo-area">
+      <h1>提案先企業 分析レポート</h1>
+      <p>デイリースポーツ案内広告社様 / OOH広告 5商材 / SalesNow MCP 分析</p>
+    </div>
+    <div class="date-badge">2026.04.09</div>
+  </div>
+  <div class="sub">対象：393社 ｜ データソース：SalesNow CSV + MCP（ニュース直近3ヶ月）｜ 企業名クリックでアプローチ理由を表示</div>
+</div>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<div class="main">
+
+
+  <!-- TOP20 Table -->
+  <div class="card">
+    <h2>TOP 20 企業（優先度スコア順）<small>企業名をクリックするとアプローチ理由が表示されます</small></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>企業名</th>
+          <th>優先度スコア</th>
+          <th>SNスコア</th>
+          <th>業界</th>
+          <th>所在地</th>
+          <th>フラグ</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">1</td>
+  <td>
+    <button class="company-btn" onclick="openModal(1)">株式会社トライ・インターナショナル</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:82.8%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">82.8</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">95.0</td>
+  <td style="color:#4b5563;font-size:12px">飲食・外食</td>
+  <td style="color:#939DA7;font-size:12px">千葉県</td>
+  <td style="font-size:11px"><span class="tag yellow">◎ニュース</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">2</td>
+  <td>
+    <button class="company-btn" onclick="openModal(2)">レッドホースコーポレーション株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:82.2%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">82.2</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">92.0</td>
+  <td style="color:#4b5563;font-size:12px">観光・宿泊・レジャー</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">3</td>
+  <td>
+    <button class="company-btn" onclick="openModal(3)">リゾートトラスト株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:78.7%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">78.7</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">89.0</td>
+  <td style="color:#4b5563;font-size:12px">観光・宿泊・レジャー</td>
+  <td style="color:#939DA7;font-size:12px">愛知県</td>
+  <td style="font-size:11px"><span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">4</td>
+  <td>
+    <button class="company-btn" onclick="openModal(4)">オーケー株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:77.7%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">77.7</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">92.0</td>
+  <td style="color:#4b5563;font-size:12px">小売・販売・卸売</td>
+  <td style="color:#939DA7;font-size:12px">神奈川県</td>
+  <td style="font-size:11px"><span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">5</td>
+  <td>
+    <button class="company-btn" onclick="openModal(5)">株式会社ホスピタリティオペレーションズ</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:77.7%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">77.7</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">92.0</td>
+  <td style="color:#4b5563;font-size:12px">観光・宿泊・レジャー</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">6</td>
+  <td>
+    <button class="company-btn" onclick="openModal(6)">三菱地所ホテルズ＆リゾーツ株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:77.0%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">77.0</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">90.0</td>
+  <td style="color:#4b5563;font-size:12px">観光・宿泊・レジャー</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">7</td>
+  <td>
+    <button class="company-btn" onclick="openModal(7)">株式会社フィットクルー</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:75.4%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">75.4</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">94.0</td>
+  <td style="color:#4b5563;font-size:12px">医療・製薬・福祉</td>
+  <td style="color:#939DA7;font-size:12px">大阪府</td>
+  <td style="font-size:11px"><span class="tag purple">★ビズスタ</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">8</td>
+  <td>
+    <button class="company-btn" onclick="openModal(8)">三州製菓株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:75.0%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">75.0</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">100.0</td>
+  <td style="color:#4b5563;font-size:12px">食品</td>
+  <td style="color:#939DA7;font-size:12px">埼玉県</td>
+  <td style="font-size:11px"><span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">9</td>
+  <td>
+    <button class="company-btn" onclick="openModal(9)">税理士法人アイユーコンサルティング</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:75.0%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">75.0</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">100.0</td>
+  <td style="color:#4b5563;font-size:12px">士業</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">10</td>
+  <td>
+    <button class="company-btn" onclick="openModal(10)">株式会社リップス</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:74.3%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">74.3</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">98.0</td>
+  <td style="color:#4b5563;font-size:12px">美容・アパレル</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">11</td>
+  <td>
+    <button class="company-btn" onclick="openModal(11)">パーソルビジネスプロセスデザイン株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:74.0%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">74.0</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">90.0</td>
+  <td style="color:#4b5563;font-size:12px">コンサルティング</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">12</td>
+  <td>
+    <button class="company-btn" onclick="openModal(12)">花王株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:73.7%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">73.7</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">89.0</td>
+  <td style="color:#4b5563;font-size:12px">生活用品</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">13</td>
+  <td>
+    <button class="company-btn" onclick="openModal(13)">Ｕｍｉｏｓ株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:73.7%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">73.7</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">89.0</td>
+  <td style="color:#4b5563;font-size:12px">食品</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">14</td>
+  <td>
+    <button class="company-btn" onclick="openModal(14)">ぴあ株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:73.5%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">73.5</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">90.0</td>
+  <td style="color:#4b5563;font-size:12px">エンタメ・娯楽</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">15</td>
+  <td>
+    <button class="company-btn" onclick="openModal(15)">サッポロ不動産開発株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:73.3%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">73.3</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">88.0</td>
+  <td style="color:#4b5563;font-size:12px">不動産</td>
+  <td style="color:#939DA7;font-size:12px">東京都</td>
+  <td style="font-size:11px"><span class="tag red">★つり革緊急</span> <span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span> <span class="tag green">▲成長</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">16</td>
+  <td>
+    <button class="company-btn" onclick="openModal(16)">株式会社ジンズ</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:71.8%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">71.8</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">91.0</td>
+  <td style="color:#4b5563;font-size:12px">小売・販売・卸売</td>
+  <td style="color:#939DA7;font-size:12px">群馬県</td>
+  <td style="font-size:11px"></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">17</td>
+  <td>
+    <button class="company-btn" onclick="openModal(17)">株式会社アインホールディングス</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:71.3%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">71.3</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">91.0</td>
+  <td style="color:#4b5563;font-size:12px">医療・製薬・福祉</td>
+  <td style="color:#939DA7;font-size:12px">北海道</td>
+  <td style="font-size:11px"><span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">18</td>
+  <td>
+    <button class="company-btn" onclick="openModal(18)">万葉倶楽部株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:71.2%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">71.2</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">89.0</td>
+  <td style="color:#4b5563;font-size:12px">観光・宿泊・レジャー</td>
+  <td style="color:#939DA7;font-size:12px">神奈川県</td>
+  <td style="font-size:11px"><span class="tag purple">★ビズスタ</span></td>
+</tr>
+<tr style="background:#ffffff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">19</td>
+  <td>
+    <button class="company-btn" onclick="openModal(19)">株式会社横浜グランドインターコンチネンタルホテル</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:71.2%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">71.2</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">89.0</td>
+  <td style="color:#4b5563;font-size:12px">観光・宿泊・レジャー</td>
+  <td style="color:#939DA7;font-size:12px">神奈川県</td>
+  <td style="font-size:11px"><span class="tag purple">★ビズスタ</span></td>
+</tr>
+<tr style="background:#fafbff">
+  <td style="text-align:center;color:#939DA7;font-size:12px;width:36px">20</td>
+  <td>
+    <button class="company-btn" onclick="openModal(20)">アイフル株式会社</button>
+  </td>
+  <td>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="flex:1;background:#f4f6f8;border-radius:4px;height:8px;overflow:hidden;min-width:80px">
+        <div style="height:100%;width:71.2%;background:#2A9BA1;border-radius:4px"></div>
+      </div>
+      <span style="color:#2A9BA1;font-weight:700;font-size:13px;min-width:36px">71.2</span>
+    </div>
+  </td>
+  <td style="text-align:center;color:#939DA7;font-size:12px">89.0</td>
+  <td style="color:#4b5563;font-size:12px">金融</td>
+  <td style="color:#939DA7;font-size:12px">京都府</td>
+  <td style="font-size:11px"><span class="tag purple">★ビズスタ</span> <span class="tag yellow">◎ニュース</span></td>
+</tr></tbody>
+    </table>
+    <p class="hint"><span>💡 企業名（青字）をクリックするとアプローチすべき理由のパネルが開きます</span></p>
+  </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ═══════════════ MODAL ═══════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeOnBg(event)">
+  <div class="modal" id="modalBox">
+    <div class="modal-head">
+      <div style="display:flex;align-items:flex-start;gap:16px;flex:1">
+        <div class="modal-head-info" id="modalHeadInfo"></div>
+        <div style="flex:1"></div>
+        <div class="modal-score" id="modalScore"></div>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ═══════════════ SCORE LOGIC ═══════════════ -->
+<div class="main">
+  <div class="card">
+    <h2>優先度スコア ロジック解説</h2>
+    <p style="font-size:12px;color:#939DA7;margin-bottom:20px;padding-left:16px">各企業の優先度スコア（0〜100点）は以下の5軸で構成されています</p>
+
+    <!-- 5軸サマリー -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:28px">
+      <div style="background:#eaf7f7;border:1px solid #b2e0e2;border-radius:10px;padding:16px;text-align:center">
+        <div style="font-size:28px;font-weight:900;color:#2A9BA1">35pt</div>
+        <div style="font-size:12px;font-weight:700;color:#27878A;margin-top:4px">① SalesNowスコア</div>
+        <div style="font-size:11px;color:#939DA7;margin-top:4px">SNスコア ÷ 100 × 35</div>
+      </div>
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:16px;text-align:center">
+        <div style="font-size:28px;font-weight:900;color:#16a34a">20pt</div>
+        <div style="font-size:12px;font-weight:700;color:#15803d;margin-top:4px">② 従業員数ランク</div>
+        <div style="font-size:11px;color:#939DA7;margin-top:4px">ランク(0〜8) ÷ 8 × 20</div>
+      </div>
+      <div style="background:#fefce8;border:1px solid #fde68a;border-radius:10px;padding:16px;text-align:center">
+        <div style="font-size:28px;font-weight:900;color:#d97706">15pt</div>
+        <div style="font-size:12px;font-weight:700;color:#b45309;margin-top:4px">③ 3ヶ月成長率</div>
+        <div style="font-size:11px;color:#939DA7;margin-top:4px">成長度に応じた段階付与</div>
+      </div>
+      <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:16px;text-align:center">
+        <div style="font-size:28px;font-weight:900;color:#7c3aed">20pt</div>
+        <div style="font-size:12px;font-weight:700;color:#6d28d9;margin-top:4px">④ 商材適合・エリア</div>
+        <div style="font-size:11px;color:#939DA7;margin-top:4px">業界・エリア・上場区分</div>
+      </div>
+      <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:10px;padding:16px;text-align:center">
+        <div style="font-size:28px;font-weight:900;color:#dc2626">10pt</div>
+        <div style="font-size:12px;font-weight:700;color:#b91c1c;margin-top:4px">⑤ MCPフラグ</div>
+        <div style="font-size:11px;color:#939DA7;margin-top:4px">ニュース+7 / 採用求人+5</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+
+      <!-- ③ 成長率テーブル -->
+      <div>
+        <div style="font-size:12px;font-weight:700;color:#b45309;margin-bottom:10px;display:flex;align-items:center;gap:6px">
+          <span style="display:inline-block;width:4px;height:14px;background:#d97706;border-radius:2px"></span>
+          ③ 3ヶ月成長率 → ポイント換算
+        </div>
+        <table style="font-size:12px">
+          <thead>
+            <tr style="background:#fefce8">
+              <th style="padding:8px 10px;border-bottom:2px solid #fde68a;color:#92400e;font-size:11px">成長率</th>
+              <th style="padding:8px 10px;border-bottom:2px solid #fde68a;color:#92400e;font-size:11px;text-align:right">ポイント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #fef9c3;color:#374151">+5% 以上</td><td style="padding:8px 10px;border-bottom:1px solid #fef9c3;text-align:right;font-weight:700;color:#d97706">15pt</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #fef9c3;color:#374151">+1〜5%</td><td style="padding:8px 10px;border-bottom:1px solid #fef9c3;text-align:right;font-weight:700;color:#d97706">10.5pt</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #fef9c3;color:#374151">±0〜+1%（横ばい）</td><td style="padding:8px 10px;border-bottom:1px solid #fef9c3;text-align:right;font-weight:700;color:#d97706">7.5pt</td></tr>
+            <tr><td style="padding:8px 10px;color:#374151">マイナス or データなし</td><td style="padding:8px 10px;text-align:right;font-weight:700;color:#939DA7">3pt</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ④ 商材適合テーブル -->
+      <div>
+        <div style="font-size:12px;font-weight:700;color:#6d28d9;margin-bottom:10px;display:flex;align-items:center;gap:6px">
+          <span style="display:inline-block;width:4px;height:14px;background:#7c3aed;border-radius:2px"></span>
+          ④ 商材適合・エリア（最大20pt）
+        </div>
+        <table style="font-size:12px">
+          <thead>
+            <tr style="background:#faf5ff">
+              <th style="padding:8px 10px;border-bottom:2px solid #e9d5ff;color:#6d28d9;font-size:11px">条件</th>
+              <th style="padding:8px 10px;border-bottom:2px solid #e9d5ff;color:#6d28d9;font-size:11px;text-align:right">加点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;color:#374151">全社ベース（基礎点）</td><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;text-align:right;font-weight:700;color:#7c3aed">+5pt</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;color:#374151">東京都内</td><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;text-align:right;font-weight:700;color:#7c3aed">+3pt</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;color:#374151">セグA業界<span style="display:block;font-size:10px;color:#939DA7">美容・飲食・観光・エンタメ・小売・ゲーム・メディア・食品・生活用品</span></td><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;text-align:right;font-weight:700;color:#7c3aed;vertical-align:top">+7pt</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;color:#374151">セグB業界<span style="display:block;font-size:10px;color:#939DA7">金融・不動産・医療・教育・観光・コンサル・士業</span></td><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;text-align:right;font-weight:700;color:#7c3aed;vertical-align:top">+5pt</td></tr>
+            <tr><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;color:#374151">ビズスタ富裕層エリア<span style="display:block;font-size:10px;color:#939DA7">港区・世田谷区・渋谷区など11区</span></td><td style="padding:8px 10px;border-bottom:1px solid #f5f3ff;text-align:right;font-weight:700;color:#7c3aed;vertical-align:top">+3pt</td></tr>
+            <tr><td style="padding:8px 10px;color:#374151">プライム上場</td><td style="padding:8px 10px;text-align:right;font-weight:700;color:#7c3aed">+2pt</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ② 従業員数ランクテーブル -->
+      <div>
+        <div style="font-size:12px;font-weight:700;color:#15803d;margin-bottom:10px;display:flex;align-items:center;gap:6px">
+          <span style="display:inline-block;width:4px;height:14px;background:#16a34a;border-radius:2px"></span>
+          ② 従業員数ランク → ポイント換算
+        </div>
+        <table style="font-size:12px">
+          <thead>
+            <tr style="background:#f0fdf4">
+              <th style="padding:8px 10px;border-bottom:2px solid #bbf7d0;color:#166534;font-size:11px">従業員数</th>
+              <th style="padding:8px 10px;border-bottom:2px solid #bbf7d0;color:#166534;font-size:11px;text-align:center">ランク</th>
+              <th style="padding:8px 10px;border-bottom:2px solid #bbf7d0;color:#166534;font-size:11px;text-align:right">ポイント</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">10,000人以上</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">8</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#16a34a">20pt</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">3,000〜10,000人</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">7</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#16a34a">17.5pt</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">1,000〜3,000人</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">6</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#16a34a">15pt</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">300〜1,000人</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">5</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#16a34a">12.5pt</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">50〜300人</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">4</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#16a34a">10pt</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">20〜50人</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">3</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#16a34a">7.5pt</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">10〜20人</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">2</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#16a34a">5pt</td></tr>
+            <tr><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;color:#374151">5〜10人</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:center;color:#939DA7">1</td><td style="padding:7px 10px;border-bottom:1px solid #f0fdf4;text-align:right;font-weight:700;color:#939DA7">2.5pt</td></tr>
+            <tr><td style="padding:7px 10px;color:#374151">5人未満</td><td style="padding:7px 10px;text-align:center;color:#939DA7">0</td><td style="padding:7px 10px;text-align:right;font-weight:700;color:#939DA7">0pt</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- 実例 -->
+    <div style="background:#f8fafb;border:1px solid #dde3e8;border-radius:10px;padding:18px;margin-top:20px">
+      <div style="font-size:12px;font-weight:700;color:#374151;margin-bottom:12px;display:flex;align-items:center;gap:6px">
+        <span style="display:inline-block;width:4px;height:14px;background:#2A9BA1;border-radius:2px"></span>
+        実例：TOP1 株式会社トライ・インターナショナル（82.8点）
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <div style="background:#eaf7f7;border:1px solid #b2e0e2;border-radius:8px;padding:10px 16px;text-align:center">
+          <div style="font-size:18px;font-weight:800;color:#2A9BA1">33.3pt</div>
+          <div style="font-size:10px;color:#939DA7;margin-top:2px">① SNスコア95点</div>
+        </div>
+        <div style="color:#939DA7;font-size:18px">+</div>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:8px;padding:10px 16px;text-align:center">
+          <div style="font-size:18px;font-weight:800;color:#16a34a">10pt</div>
+          <div style="font-size:10px;color:#939DA7;margin-top:2px">② 従業員ランク4</div>
+        </div>
+        <div style="color:#939DA7;font-size:18px">+</div>
+        <div style="background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:10px 16px;text-align:center">
+          <div style="font-size:18px;font-weight:800;color:#d97706">10.5pt</div>
+          <div style="font-size:10px;color:#939DA7;margin-top:2px">③ +1〜5%成長</div>
+        </div>
+        <div style="color:#939DA7;font-size:18px">+</div>
+        <div style="background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;padding:10px 16px;text-align:center">
+          <div style="font-size:18px;font-weight:800;color:#7c3aed">12pt</div>
+          <div style="font-size:10px;color:#939DA7;margin-top:2px">④ 飲食(A+7)＋基礎5</div>
+        </div>
+        <div style="color:#939DA7;font-size:18px">+</div>
+        <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:8px;padding:10px 16px;text-align:center">
+          <div style="font-size:18px;font-weight:800;color:#dc2626">7pt</div>
+          <div style="font-size:10px;color:#939DA7;margin-top:2px">⑤ ニュースフラグ</div>
+        </div>
+        <div style="color:#939DA7;font-size:18px">=</div>
+        <div style="background:#283C50;border-radius:8px;padding:10px 20px;text-align:center">
+          <div style="font-size:22px;font-weight:900;color:#fff">82.8pt</div>
+          <div style="font-size:10px;color:#939DA7;margin-top:2px">優先度スコア</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /score-logic -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>デイリースポーツ案内広告社様 提案資料 | SalesNow データ基盤 | Confidential | 2026.04.09</footer>
+
+<!-- ═══════════════ SCRIPT ═══════════════ -->
+<script>
+const DATA = {
+  "1": {
+    "name": "株式会社トライ・インターナショナル",
+    "score": 82.8,
+    "sn_score": 95.0,
+    "industry": "飲食・外食",
+    "pref": "千葉県",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/C",
+    "emp_range": "5: 300人以上~1,000人未満",
+    "g3m": 5.83,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbkw6hptut4khsm1&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 95.0点 → 33.2pt",
+      "従業員数ランク → 12.5pt",
+      "3ヶ月成長率 → 15.0pt",
+      "商材適合・エリア → 15.0pt",
+      "MCPフラグ → +7.1pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「飲食・外食」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が千葉県のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-04-03: <a href=\"https://prtimes.jp/main/html/rd/p/000000028.000171465.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">たんぽぽ・川村エミコさん出演の新TVCM ４月７日より放映開始...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+5.8%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大手規模。①109ビジョン1年（850万）・③ビズスタ1P（170万）・④スタンダード（220万）のコンビ提案を推奨。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "2": {
+    "name": "レッドホースコーポレーション株式会社",
+    "score": 82.2,
+    "sn_score": 92.0,
+    "industry": "観光・宿泊・レジャー",
+    "pref": "東京都",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/B/C",
+    "emp_range": "5: 300人以上~1,000人未満",
+    "g3m": 2.02,
+    "recommended": "①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcb1r6k0uv79h2y2w&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 92.0点 → 32.2pt",
+      "従業員数ランク → 12.5pt",
+      "3ヶ月成長率 → 10.5pt",
+      "商材適合・エリア → 20.0pt",
+      "MCPフラグ → +7.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「観光・宿泊・レジャー」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「観光・宿泊・レジャー」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。採用強化中または成長中のため採用認知訴求を軸にした提案が有効です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-02-07: <a href=\"https://prtimes.jp/main/html/rd/p/000000539.000048395.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">バレンタインに勝どきで開催される「太陽のマルシェ」で、熊本県錦町の特産品を販売。2月14日・15日の2日間、『みらいマルシェにしき』を出店。...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+2.0%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大手規模。①109ビジョン1年（850万）・③ビズスタ1P（170万）・④スタンダード（220万）のコンビ提案を推奨。\n推奨商材：①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨"
+      }
+    ]
+  },
+  "3": {
+    "name": "リゾートトラスト株式会社",
+    "score": 78.7,
+    "sn_score": 89.0,
+    "industry": "観光・宿泊・レジャー",
+    "pref": "愛知県",
+    "listing": "プライム（内国株式）（旧:東証１部）",
+    "seg": "A/B/C",
+    "emp_range": "7: 3,000人以上~10,000人未満",
+    "g3m": -0.89,
+    "recommended": "①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbvvccsj5r79tdd&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 89.0点 → 31.2pt",
+      "従業員数ランク → 17.5pt",
+      "3ヶ月成長率 → 3.0pt",
+      "商材適合・エリア → 20.0pt",
+      "MCPフラグ → +7.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「観光・宿泊・レジャー」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「観光・宿泊・レジャー」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が愛知県のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-04-08: <a href=\"https://prtimes.jp/main/html/rd/p/000000361.000047917.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">【飛驒高山美術館】その日の感動を、日常へ。香りが呼び起こす、鑑賞の余韻。「オリジナルアロマオイル付入館券」新発売...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "超大手。年間予算が十分あるため、①②全商材コンビネーション ＋ Tokyo FM連動プランBまで提案可能。\n推奨商材：①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨"
+      }
+    ]
+  },
+  "4": {
+    "name": "オーケー株式会社",
+    "score": 77.7,
+    "sn_score": 92.0,
+    "industry": "小売・販売・卸売",
+    "pref": "神奈川県",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/C",
+    "emp_range": "8: 10,000人以上",
+    "g3m": 3.01,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbvnsejdv9yf5nsx&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 92.0点 → 32.2pt",
+      "従業員数ランク → 20.0pt",
+      "3ヶ月成長率 → 10.5pt",
+      "商材適合・エリア → 15.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「小売・販売・卸売」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が神奈川県のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+3.0%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "超大手。年間予算が十分あるため、①②全商材コンビネーション ＋ Tokyo FM連動プランBまで提案可能。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "5": {
+    "name": "株式会社ホスピタリティオペレーションズ",
+    "score": 77.7,
+    "sn_score": 92.0,
+    "industry": "観光・宿泊・レジャー",
+    "pref": "東京都",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/B/C",
+    "emp_range": "6: 1,000人以上~3,000人未満",
+    "g3m": 3.15,
+    "recommended": "①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbx516a78e7817a&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 92.0点 → 32.2pt",
+      "従業員数ランク → 15.0pt",
+      "3ヶ月成長率 → 10.5pt",
+      "商材適合・エリア → 20.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「観光・宿泊・レジャー」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「観光・宿泊・レジャー」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。採用強化中または成長中のため採用認知訴求を軸にした提案が有効です。"
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+3.1%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大企業。①②③④の複数商材を束ねたパッケージ提案でトータル予算を獲りにいく戦略。\n推奨商材：①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨"
+      }
+    ]
+  },
+  "6": {
+    "name": "三菱地所ホテルズ＆リゾーツ株式会社",
+    "score": 77.0,
+    "sn_score": 90.0,
+    "industry": "観光・宿泊・レジャー",
+    "pref": "東京都",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/B/C",
+    "emp_range": "6: 1,000人以上~3,000人未満",
+    "g3m": 2.53,
+    "recommended": "①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbwe7tt30m4u09vr&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 90.0点 → 31.5pt",
+      "従業員数ランク → 15.0pt",
+      "3ヶ月成長率 → 10.5pt",
+      "商材適合・エリア → 20.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「観光・宿泊・レジャー」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「観光・宿泊・レジャー」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。採用強化中または成長中のため採用認知訴求を軸にした提案が有効です。"
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+2.5%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大企業。①②③④の複数商材を束ねたパッケージ提案でトータル予算を獲りにいく戦略。\n推奨商材：①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨"
+      }
+    ]
+  },
+  "7": {
+    "name": "株式会社フィットクルー",
+    "score": 75.4,
+    "sn_score": 94.0,
+    "industry": "医療・製薬・福祉",
+    "pref": "大阪府",
+    "listing": "グロース（内国株式）",
+    "seg": "B/C",
+    "emp_range": "5: 300人以上~1,000人未満",
+    "g3m": 10.25,
+    "recommended": "③ビズスタ ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcb4cxah54chnveb9&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 94.0点 → 32.9pt",
+      "従業員数ランク → 12.5pt",
+      "3ヶ月成長率 → 15.0pt",
+      "商材適合・エリア → 15.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「医療・製薬・福祉」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が大阪府のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+10.2%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大手規模。①109ビジョン1年（850万）・③ビズスタ1P（170万）・④スタンダード（220万）のコンビ提案を推奨。\n推奨商材：③ビズスタ ＋ ④都営つり革"
+      }
+    ]
+  },
+  "8": {
+    "name": "三州製菓株式会社",
+    "score": 75.0,
+    "sn_score": 100.0,
+    "industry": "食品",
+    "pref": "埼玉県",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/C",
+    "emp_range": "4: 50人以上~300人未満",
+    "g3m": 22.94,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcb8jdjn6c4s26019&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 100.0点 → 35.0pt",
+      "従業員数ランク → 10.0pt",
+      "3ヶ月成長率 → 15.0pt",
+      "商材適合・エリア → 15.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「食品」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が埼玉県のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+22.9%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "中堅規模。①109ビジョン半年（430万）または③ビズスタ（1/2P 90万）への単独提案が現実的。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "9": {
+    "name": "税理士法人アイユーコンサルティング",
+    "score": 75.0,
+    "sn_score": 100.0,
+    "industry": "士業",
+    "pref": "東京都",
+    "listing": "未上場",
+    "seg": "B/C",
+    "emp_range": "4: 50人以上~300人未満",
+    "g3m": 11.96,
+    "recommended": "③ビズスタ ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbpjvs58k4fxyex&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 100.0点 → 35.0pt",
+      "従業員数ランク → 10.0pt",
+      "3ヶ月成長率 → 15.0pt",
+      "商材適合・エリア → 15.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「士業」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。採用強化中または成長中のため採用認知訴求を軸にした提案が有効です。"
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+12.0%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "中堅規模。①109ビジョン半年（430万）または③ビズスタ（1/2P 90万）への単独提案が現実的。\n推奨商材：③ビズスタ ＋ ④都営つり革"
+      }
+    ]
+  },
+  "10": {
+    "name": "株式会社リップス",
+    "score": 74.3,
+    "sn_score": 98.0,
+    "industry": "美容・アパレル",
+    "pref": "東京都",
+    "listing": "グロース（内国株式）",
+    "seg": "A/C",
+    "emp_range": "4: 50人以上~300人未満",
+    "g3m": 7.02,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcb43eyukjpm6uym&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 98.0点 → 34.3pt",
+      "従業員数ランク → 10.0pt",
+      "3ヶ月成長率 → 15.0pt",
+      "商材適合・エリア → 15.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「美容・アパレル」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。採用強化中または成長中のため採用認知訴求を軸にした提案が有効です。"
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+7.0%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "中堅規模。①109ビジョン半年（430万）または③ビズスタ（1/2P 90万）への単独提案が現実的。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "11": {
+    "name": "パーソルビジネスプロセスデザイン株式会社",
+    "score": 74.0,
+    "sn_score": 90.0,
+    "industry": "コンサルティング",
+    "pref": "東京都",
+    "listing": "未上場",
+    "seg": "B/C",
+    "emp_range": "8: 10,000人以上",
+    "g3m": 0.1,
+    "recommended": "③ビズスタ ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcb4c7h90kyxb0hv9&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 90.0点 → 31.5pt",
+      "従業員数ランク → 20.0pt",
+      "3ヶ月成長率 → 7.5pt",
+      "商材適合・エリア → 15.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「コンサルティング」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "超大手。年間予算が十分あるため、①②全商材コンビネーション ＋ Tokyo FM連動プランBまで提案可能。\n推奨商材：③ビズスタ ＋ ④都営つり革"
+      }
+    ]
+  },
+  "12": {
+    "name": "花王株式会社",
+    "score": 73.7,
+    "sn_score": 89.0,
+    "industry": "生活用品",
+    "pref": "東京都",
+    "listing": "プライム（内国株式）（旧:東証１部）",
+    "seg": "A/C",
+    "emp_range": "7: 3,000人以上~10,000人未満",
+    "g3m": -0.25,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcb34n7beafmpk01&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 89.0点 → 31.2pt",
+      "従業員数ランク → 17.5pt",
+      "3ヶ月成長率 → 3.0pt",
+      "商材適合・エリア → 15.0pt",
+      "MCPフラグ → +7.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「生活用品」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-04-06: <a href=\"https://prtimes.jp/main/html/rd/p/000000008.000133306.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">花王『メンズビオレ』15年ぶりのブランドリニューアル 菅田将暉さん・井之脇海さん出演 Vaundy楽曲「気まぐれ」起用 新TVCM、4月11...</a>\n・2026-03-30: <a href=\"https://prtimes.jp/main/html/rd/p/000001817.000009276.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">超ラク♪食器洗いを提案「泡パックして、ほったらかし！」 花王『キュキュット ゴシゴシいらずの泡パック』パッケージ刷新 新CM「ほったらかし劇...</a>\n・2026-03-18: <a href=\"https://prtimes.jp/main/html/rd/p/000000271.000072864.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">【SOFINA iP】高橋文哉さんの爽やかな素肌と濃密マイクロ炭酸※1 泡が魅せる「マイクロ泡セラム洗顔料」新CM、2026年３月18日（水...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "超大手。年間予算が十分あるため、①②全商材コンビネーション ＋ Tokyo FM連動プランBまで提案可能。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "13": {
+    "name": "Ｕｍｉｏｓ株式会社",
+    "score": 73.7,
+    "sn_score": 89.0,
+    "industry": "食品",
+    "pref": "東京都",
+    "listing": "プライム（内国株式）（旧:東証１部）",
+    "seg": "A/C",
+    "emp_range": "7: 3,000人以上~10,000人未満",
+    "g3m": -0.68,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbt1nrun15fnaaa&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 89.0点 → 31.2pt",
+      "従業員数ランク → 17.5pt",
+      "3ヶ月成長率 → 3.0pt",
+      "商材適合・エリア → 15.0pt",
+      "MCPフラグ → +7.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「食品」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-02-26: <a href=\"https://prtimes.jp/main/html/rd/p/000000001.000178344.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">＜マルハニチロは、Umiosへ。＞高橋一生さん、新生命体「ウミオス」と初共演！？Umiosとして初の企業CM「ウミオス登場（海辺）」篇が2月...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "超大手。年間予算が十分あるため、①②全商材コンビネーション ＋ Tokyo FM連動プランBまで提案可能。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "14": {
+    "name": "ぴあ株式会社",
+    "score": 73.5,
+    "sn_score": 90.0,
+    "industry": "エンタメ・娯楽",
+    "pref": "東京都",
+    "listing": "プライム（内国株式）（旧:東証１部）",
+    "seg": "A/C",
+    "emp_range": "5: 300人以上~1,000人未満",
+    "g3m": 0.78,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbvrkgy7wx3sxdd&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 90.0点 → 31.5pt",
+      "従業員数ランク → 12.5pt",
+      "3ヶ月成長率 → 7.5pt",
+      "商材適合・エリア → 15.0pt",
+      "MCPフラグ → +7.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「エンタメ・娯楽」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-02-06: <a href=\"https://prtimes.jp/main/html/rd/p/000003996.000011710.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">みなとみらい「The Blue Bell」より、Minimalのチョコレートを味わう期間限定メニューが登場！パンケーキ・ホットチョコレート・...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大手規模。①109ビジョン1年（850万）・③ビズスタ1P（170万）・④スタンダード（220万）のコンビ提案を推奨。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "15": {
+    "name": "サッポロ不動産開発株式会社",
+    "score": 73.3,
+    "sn_score": 88.0,
+    "industry": "不動産",
+    "pref": "東京都",
+    "listing": "未上場（旧:未上場）",
+    "seg": "B/C",
+    "emp_range": "4: 50人以上~300人未満",
+    "g3m": 3.88,
+    "recommended": "③ビズスタ ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbu5jc4bdnxuey2&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 88.0点 → 30.8pt",
+      "従業員数ランク → 10.0pt",
+      "3ヶ月成長率 → 10.5pt",
+      "商材適合・エリア → 15.0pt",
+      "MCPフラグ → +7.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「不動産」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "★ つり革 緊急（今月中）",
+        "color": "#dc2626",
+        "bg": "#fee2e2",
+        "text": "東京都内企業（東京都）のため、都営4線（大江戸線・新宿線・浅草線・三田線）の通勤者リーチが期待できます。2026年3〜5月掲出スタートのため、今月中に発注判断が必要です。掲出期間は1年間で、12ヶ月の継続接触によるブランディング・採用認知効果があります。三田線は田園調布・横浜方面の富裕層にもリーチ可能です。採用強化中または成長中のため採用認知訴求を軸にした提案が有効です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-04-08: <a href=\"https://prtimes.jp/main/html/rd/p/000000174.000016744.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">「EBISU Bloomin‘ JAZZ GARDEN 2026」開催！本イベントのために造られたビールが限定販売！...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "▲ 3ヶ月成長中",
+        "color": "#166534",
+        "bg": "#f0fdf4",
+        "text": "過去3ヶ月で従業員数が+3.9%増加しており、組織拡大フェーズにあります。事業成長期は広告・採用投資が積極化する傾向が強く、広告予算確保の可能性が高い状態です。採用認知（つり革）や新規顧客獲得（渋谷ビジョン・ビズスタ）への投資余地があります。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "中堅規模。①109ビジョン半年（430万）または③ビズスタ（1/2P 90万）への単独提案が現実的。\n推奨商材：③ビズスタ ＋ ④都営つり革"
+      }
+    ]
+  },
+  "16": {
+    "name": "株式会社ジンズ",
+    "score": 71.8,
+    "sn_score": 91.0,
+    "industry": "小売・販売・卸売",
+    "pref": "群馬県",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/C",
+    "emp_range": "7: 3,000人以上~10,000人未満",
+    "g3m": 0.5,
+    "recommended": "①②渋谷ビジョン系 ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbx6k0kk4gmyyyyy&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 91.0点 → 31.9pt",
+      "従業員数ランク → 17.5pt",
+      "3ヶ月成長率 → 7.5pt",
+      "商材適合・エリア → 15.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「小売・販売・卸売」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が群馬県のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "超大手。年間予算が十分あるため、①②全商材コンビネーション ＋ Tokyo FM連動プランBまで提案可能。\n推奨商材：①②渋谷ビジョン系 ＋ ④都営つり革"
+      }
+    ]
+  },
+  "17": {
+    "name": "株式会社アインホールディングス",
+    "score": 71.3,
+    "sn_score": 91.0,
+    "industry": "医療・製薬・福祉",
+    "pref": "北海道",
+    "listing": "プライム（内国株式）（旧:東証１部）",
+    "seg": "B/C",
+    "emp_range": "4: 50人以上~300人未満",
+    "g3m": 0.0,
+    "recommended": "③ビズスタ ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbanmvj7me13p6w&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 91.0点 → 31.9pt",
+      "従業員数ランク → 10.0pt",
+      "3ヶ月成長率 → 7.5pt",
+      "商材適合・エリア → 15.0pt",
+      "MCPフラグ → +6.9pt"
+    ],
+    "reasons": [
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「医療・製薬・福祉」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が北海道のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-04-01: <a href=\"https://prtimes.jp/main/html/rd/p/000000061.000141492.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">吉永小百合さんご出演 アイン薬局 新CM放映開始について...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "中堅規模。①109ビジョン半年（430万）または③ビズスタ（1/2P 90万）への単独提案が現実的。\n推奨商材：③ビズスタ ＋ ④都営つり革"
+      }
+    ]
+  },
+  "18": {
+    "name": "万葉倶楽部株式会社",
+    "score": 71.2,
+    "sn_score": 89.0,
+    "industry": "観光・宿泊・レジャー",
+    "pref": "神奈川県",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/B/C",
+    "emp_range": "5: 300人以上~1,000人未満",
+    "g3m": 0.75,
+    "recommended": "①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbt0hb2vf6r74na&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 89.0点 → 31.2pt",
+      "従業員数ランク → 12.5pt",
+      "3ヶ月成長率 → 7.5pt",
+      "商材適合・エリア → 20.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「観光・宿泊・レジャー」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「観光・宿泊・レジャー」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が神奈川県のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大手規模。①109ビジョン1年（850万）・③ビズスタ1P（170万）・④スタンダード（220万）のコンビ提案を推奨。\n推奨商材：①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨"
+      }
+    ]
+  },
+  "19": {
+    "name": "株式会社横浜グランドインターコンチネンタルホテル",
+    "score": 71.2,
+    "sn_score": 89.0,
+    "industry": "観光・宿泊・レジャー",
+    "pref": "神奈川県",
+    "listing": "未上場（旧:未上場）",
+    "seg": "A/B/C",
+    "emp_range": "5: 300人以上~1,000人未満",
+    "g3m": 0.56,
+    "recommended": "①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbav77jd5unjgsw&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 89.0点 → 31.2pt",
+      "従業員数ランク → 12.5pt",
+      "3ヶ月成長率 → 7.5pt",
+      "商材適合・エリア → 20.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "渋谷ビジョン推奨（A）",
+        "color": "#d97706",
+        "bg": "#fef3c7",
+        "text": "業界「観光・宿泊・レジャー」はターゲット属性（若者・インバウンド・OL・エンタメ消費層）との親和性が高く、渋谷109壁面ビジョンとの相性が最良です。①109フォーラムビジョン（41.47㎡、09:00-24:00、15秒×2回/時）または②愛ビジョン（60.48㎡縦型、17.5万円/月〜）への提案を推奨します。"
+      },
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「観光・宿泊・レジャー」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が神奈川県のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大手規模。①109ビジョン1年（850万）・③ビズスタ1P（170万）・④スタンダード（220万）のコンビ提案を推奨。\n推奨商材：①②渋谷ビジョン系 ＋ ③ビズスタ ＋ ④都営つり革 — 全商材推奨"
+      }
+    ]
+  },
+  "20": {
+    "name": "アイフル株式会社",
+    "score": 71.2,
+    "sn_score": 89.0,
+    "industry": "金融",
+    "pref": "京都府",
+    "listing": "未上場（旧:東証１部）",
+    "seg": "B/C",
+    "emp_range": "6: 1,000人以上~3,000人未満",
+    "g3m": -0.35,
+    "recommended": "③ビズスタ ＋ ④都営つり革",
+    "snurl": "https://platform.salesnow.jp/targeting/company-detail?jcCode=jcbnthr4t3fm6sss&sourceType=companySearch&tab=summary&referrer=400",
+    "score_breakdown": [
+      "SalesNowスコア 89.0点 → 31.2pt",
+      "従業員数ランク → 15.0pt",
+      "3ヶ月成長率 → 3.0pt",
+      "商材適合・エリア → 15.0pt",
+      "MCPフラグ → +7.0pt"
+    ],
+    "reasons": [
+      {
+        "tag": "ビズスタ推奨（B）",
+        "color": "#4f46e5",
+        "bg": "#ede9fe",
+        "text": "業界「金融」はビズスタ読者層（世帯年収1,000万以上53.2%・40-60代ビジネスリーダー・既婚86%）との親和性が高い業種です。日経折込10万部＋電子版ポスティング2万部で港・世田谷・目黒・渋谷等の富裕層エリアに配布されます。カルティエ・レクサス・積水ハウス・大和証券等の掲載実績あり。③ビズスタ（1/4P 50万〜、1P 170万）またはTokyo FM連動プランA（190万）・B（360万）を提案候補として検討してください。"
+      },
+      {
+        "tag": "つり革（エリア外・通常提案）",
+        "color": "#939DA7",
+        "bg": "#f4f6f8",
+        "text": "本社所在地が京都府のため東京都内の緊急フラグには該当しませんが、都営4線つり革は首都圏への出張・移転・採用活動があれば有効です。採用強化の観点からトライアルプラン（120万）でのテスト提案も可能です。"
+      },
+      {
+        "tag": "◎ 広告ニュースあり",
+        "color": "#92400e",
+        "bg": "#fefce8",
+        "text": "直近3ヶ月以内に広告・新商品・プロモーション関連ニュースが確認されています。広告予算が動いているタイミングであり、今がアプローチの好機です。\n・2026-04-06: <a href=\"https://prtimes.jp/main/html/rd/p/000000090.000010009.html\" target=\"_blank\" rel=\"noopener\" style=\"color:#27878A;text-decoration:underline\">愛がいちばん。アイフル 新TVCM「ラブファントム女将」篇3月30日（月）から全国でオンエア開始...</a>",
+        "has_links": true
+      },
+      {
+        "tag": "推奨プラン・予算感",
+        "color": "#374151",
+        "bg": "#f9fafb",
+        "text": "大企業。①②③④の複数商材を束ねたパッケージ提案でトータル予算を獲りにいく戦略。\n推奨商材：③ビズスタ ＋ ④都営つり革"
+      }
+    ]
+  }
+};
+
+function openModal(rank) {
+  const d = DATA[String(rank)];
+  if (!d) return;
+
+  // Head
+  document.getElementById('modalHeadInfo').innerHTML = `
+    <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:#939DA7;margin-bottom:6px">RANK #${rank} — ${d.industry} | ${d.pref}</div>
+    <h3>${d.name}</h3>
+    <div class="meta">従業員: ${d.emp_range} ｜ 上場: ${d.listing || '非上場'} ｜ セグメント: ${d.seg}</div>
+  `;
+  document.getElementById('modalScore').innerHTML = `
+    <div class="n">${d.score}</div>
+    <div class="l">Priority Score</div>
+  `;
+
+  // Body
+  let html = '';
+
+  // Score breakdown
+  html += '<div style="margin-bottom:20px"><div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#939DA7;text-transform:uppercase;margin-bottom:8px">スコア内訳</div>';
+  html += '<div class="score-bd">';
+  d.score_breakdown.forEach(s => {
+    html += `<span class="score-chip">${s}</span>`;
+  });
+  html += '</div></div>';
+
+  // Divider
+  html += '<div style="font-size:11px;font-weight:700;letter-spacing:1px;color:#939DA7;text-transform:uppercase;margin-bottom:12px">アプローチすべき理由</div>';
+
+  // Reason blocks
+  d.reasons.forEach(r => {
+    // has_links=trueの場合はHTMLをそのまま描画（ニュースリンク含む）
+    // それ以外は特殊文字をエスケープして改行を<br>に変換
+    const safeText = r.has_links
+      ? r.text.replace(/\n/g, '<br>')
+      : r.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+    html += `
+      <div class="reason-block" style="background:${r.bg};border-left:3px solid ${r.color}">
+        <div class="reason-tag" style="background:${r.color}1a;color:${r.color}">${r.tag}</div>
+        <div class="reason-text">${safeText}</div>
+      </div>`;
+  });
+
+  // CTA
+  const snLink = d.snurl ? `<a href="${d.snurl}" target="_blank" rel="noopener">SalesNow で詳細を見る →</a>` : '';
+  html += `
+    <div class="modal-cta">
+      <div class="rec">推奨商材<small>${d.recommended}</small></div>
+      ${snLink}
+    </div>`;
+
+  document.getElementById('modalBody').innerHTML = html;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeOnBg(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>

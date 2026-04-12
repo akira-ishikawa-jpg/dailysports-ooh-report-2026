@@ -9,12 +9,92 @@
 body{font-family:'Noto Sans JP','Inter',sans-serif;background:#f8fafb;color:#283C50;line-height:1.6}
 
 /* ── Header ── */
-.header{background:#fff;border-bottom:1px solid #dde3e8;padding:28px 64px}
-.header-top{display:flex;justify-content:space-between;align-items:flex-start}
-.logo-area h1{font-size:20px;font-weight:700;color:#283C50}
-.logo-area p{font-size:12px;color:#939DA7;margin-top:4px}
-.date-badge{background:#eaf7f7;color:#2A9BA1;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600}
-.sub{font-size:13px;color:#939DA7;margin-top:12px;padding-top:12px;border-top:1px solid #f4f6f8}
+.header{
+  background:linear-gradient(135deg,#182F46 0%,#283C50 50%,#27878A 100%);
+  padding:0;
+  position:relative;
+  overflow:hidden;
+}
+.header::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 95% 50%, rgba(42,155,161,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 5% 20%,  rgba(148,205,208,0.10) 0%, transparent 60%);
+  pointer-events:none;
+}
+.header-inner{
+  position:relative;
+  max-width:1200px;
+  margin:0 auto;
+  padding:36px 48px 32px;
+}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px}
+.header-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.header-brand-mark{
+  width:36px;height:36px;
+  background:rgba(42,155,161,0.25);
+  border:1.5px solid rgba(148,205,208,0.5);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Inter',sans-serif;
+  font-weight:900;font-size:11px;
+  color:#94CDD0;letter-spacing:-0.5px;
+}
+.header-brand-label{
+  font-family:'Inter',sans-serif;
+  font-size:11px;font-weight:600;
+  color:rgba(255,255,255,0.4);
+  letter-spacing:1.5px;text-transform:uppercase;
+}
+.logo-area h1{
+  font-size:26px;font-weight:900;
+  color:#fff;line-height:1.25;
+  letter-spacing:-0.5px;
+  text-shadow:0 1px 8px rgba(0,0,0,0.2);
+}
+.logo-area h1 span{color:#94CDD0}
+.logo-area p{font-size:12px;color:rgba(255,255,255,0.5);margin-top:6px}
+.date-badge{
+  background:rgba(42,155,161,0.2);
+  border:1px solid rgba(148,205,208,0.35);
+  color:#94CDD0;
+  padding:7px 18px;border-radius:20px;
+  font-family:'Inter',sans-serif;
+  font-size:12px;font-weight:700;
+  letter-spacing:0.5px;
+  white-space:nowrap;
+}
+.header-divider{
+  border:none;
+  border-top:1px solid rgba(255,255,255,0.1);
+  margin:0 0 24px;
+}
+.header-kpi{
+  display:flex;gap:40px;flex-wrap:wrap;
+}
+.header-kpi-item{
+  display:flex;flex-direction:column;gap:3px;
+}
+.header-kpi-item .kpi-num{
+  font-family:'Inter',sans-serif;
+  font-size:34px;font-weight:900;
+  color:#fff;line-height:1;
+}
+.header-kpi-item .kpi-num span{
+  font-size:15px;font-weight:600;
+  color:rgba(255,255,255,0.6);
+  margin-left:2px;
+}
+.header-kpi-item .kpi-lbl{
+  font-size:11px;color:rgba(255,255,255,0.45);
+  letter-spacing:0.3px;
+}
+.header-kpi-sep{
+  width:1px;background:rgba(255,255,255,0.12);
+  align-self:stretch;margin:0 8px;
+}
 
 /* ── Main ── */
 .main{max-width:1200px;margin:32px auto;padding:0 32px}
@@ -142,14 +222,46 @@ footer{text-align:center;color:#cbd5e1;font-size:11px;padding:32px;margin-top:24
 
 <!-- ═══════════════ HEADER ═══════════════ -->
 <div class="header">
-  <div class="header-top">
-    <div class="logo-area">
-      <h1>提案先企業 分析レポート</h1>
-      <p>デイリースポーツ案内広告社様 / OOH広告 5商材 / SalesNow MCP 分析</p>
+  <div class="header-inner">
+    <div class="header-top">
+      <div class="logo-area">
+        <div class="header-brand">
+          <div class="header-brand-mark">SN</div>
+          <div class="header-brand-label">SalesNow × Prospect Intelligence</div>
+        </div>
+        <h1>提案先企業 <span>優先度分析</span>レポート</h1>
+        <p>デイリースポーツ案内広告社様 &nbsp;|&nbsp; OOH広告 5商材 &nbsp;|&nbsp; SalesNow MCP 分析</p>
+      </div>
+      <div class="date-badge">2026.04.09</div>
     </div>
-    <div class="date-badge">2026.04.09</div>
+    <hr class="header-divider">
+    <div class="header-kpi">
+      <div class="header-kpi-item">
+        <div class="kpi-num">393<span>社</span></div>
+        <div class="kpi-lbl">分析対象</div>
+      </div>
+      <div class="header-kpi-sep"></div>
+      <div class="header-kpi-item">
+        <div class="kpi-num">73<span>社</span></div>
+        <div class="kpi-lbl">成長中（+1%以上）</div>
+      </div>
+      <div class="header-kpi-sep"></div>
+      <div class="header-kpi-item">
+        <div class="kpi-num">96<span>社</span></div>
+        <div class="kpi-lbl">プライム上場</div>
+      </div>
+      <div class="header-kpi-sep"></div>
+      <div class="header-kpi-item">
+        <div class="kpi-num">205<span>社</span></div>
+        <div class="kpi-lbl">東京都内</div>
+      </div>
+      <div class="header-kpi-sep"></div>
+      <div class="header-kpi-item">
+        <div class="kpi-num">20<span>社</span></div>
+        <div class="kpi-lbl">優先提案 TOP20</div>
+      </div>
+    </div>
   </div>
-  <div class="sub">対象：393社 ｜ データソース：SalesNow CSV + MCP（ニュース直近3ヶ月）｜ 企業名クリックでアプローチ理由を表示</div>
 </div>
 
 <!-- ═══════════════ MAIN ═══════════════ -->
